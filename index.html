@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Scale Ecommerce | Performance Creative Agency</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -46,23 +46,37 @@
     }
   </script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .gradient-bg {
-      background: linear-gradient(-45deg, #0a0a0a, #1a0f0a, #0f0a0a, #1a0f0a);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
+  body { font-family: 'Inter', sans-serif; }
+  .gradient-bg {
+    background: linear-gradient(-45deg, #0a0a0a, #1a0f0a, #0f0a0a, #1a0f0a);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  .logo-scroll {
+    display: flex;
+    animation: scroll 20s linear infinite;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .logo-scroll:hover { animation-play-state: paused; }
+  .glass { backdrop-filter: blur(20px); }
+  
+  /* 👈 ADD THE MOBILE ZOOM CODE HERE */
+  @supports (-webkit-touch-callout: none) {
+    * {
+      touch-action: manipulation;
     }
-    .logo-scroll {
-      display: flex;
-      animation: scroll 20s linear infinite;
+    input, textarea, select {
+      font-size: 16px;
     }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .logo-scroll:hover { animation-play-state: paused; }
-    .glass { backdrop-filter: blur(20px); }
-  </style>
+  }
+  html {
+    touch-action: manipulation;
+  }
+<style>
+
 </head>
 <body class="bg-black text-white overflow-x-hidden">
 
@@ -144,7 +158,7 @@
               </svg>
             </div>
             <h3 class="text-2xl font-black mb-4">Paid Ads Scaling</h3>
-            <p class="text-gray-400 leading-relaxed mb-6">Full-funnel Meta, TikTok, Snapchat. Advanced scaling systems. Never run out of incrementality.</p>
+            <p class="text-gray-400 leading-relaxed mb-6">Full-funnel Meta, TikTok. Advanced scaling systems. Never run out of incrementality.</p>
             <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
             <ul class="text-sm text-gray-500 space-y-2">
               <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>ROAS-first scaling</li>
