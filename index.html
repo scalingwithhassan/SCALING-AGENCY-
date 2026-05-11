@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scale Ecommerce | Performance Creative Agency</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'burnt': {
+              50: '#fef7ed',
+              500: '#f97316',
+              600: '#ea580c',
+              700: '#c2410c',
+              900: '#7c2d12',
+            }
+          },
+          animation: {
+            'gradient': 'gradient 15s ease infinite',
+            'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
+            'slideIn': 'slideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
+          },
+          keyframes: {
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideIn: {
+              '0%': { opacity: '0', transform: 'translateX(-20px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg {
+      background: linear-gradient(-45deg, #0a0a0a, #1a0f0a, #0f0a0a, #1a0f0a);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+    .logo-scroll {
+      display: flex;
+      animation: scroll 20s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .logo-scroll:hover { animation-play-state: paused; }
+    .glass { backdrop-filter: blur(20px); }
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- HERO SECTION -->
+  <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-32 md:pb-48">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 gradient-bg"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute top-1/2 -right-20 w-80 h-80 bg-burnt-700/10 rounded-full blur-3xl animate-pulse" style="animation-delay: -3s;"></div>
+    <div class="absolute bottom-1/4 left-10 w-60 h-60 bg-burnt-600/20 rounded-full blur-2xl animate-pulse" style="animation-delay: -6s;"></div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10 max-w-4xl">
+      <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+          Scale Your Ecommerce
+          <span class="block bg-gradient-to-r from-burnt-500 to-burnt-600 bg-clip-text text-transparent">Brand With Performance Creative</span>
+        </h1>
+        <p class="text-xl md:text-2xl font-light text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+          We combine <strong>expert media buying</strong>, <strong>fully managed UGC creators</strong>, and <strong>conversion-optimized creative strategy</strong> 
+          to scale Shopify & DTC brands from 7-figures to 8-figures and beyond.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+          <a href="#contact" class="group relative bg-burnt-600 hover:bg-burnt-500 text-black font-semibold py-5 px-12 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-burnt-500/25 w-fit">
+            <span class="absolute inset-0 bg-white/20 rounded-xl -translate-x-2 -translate-y-2 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
+            <span class="relative">Start Scaling</span>
+          </a>
+          <a href="#results" class="font-semibold py-5 px-12 border border-gray-700/50 hover:border-gray-500 text-lg rounded-xl transition-all duration-300 hover:bg-white/5">
+            View Results
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST / LOGO STRIP -->
+  <section class="py-20 bg-black/80 backdrop-blur-sm">
+    <div class="container mx-auto px-6">
+      <div class="logo-scroll gap-24 md:gap-32 items-center h-16">
+        <!-- Duplicate for seamless scroll -->
+        <div class="flex gap-24 md:gap-32 items-center flex-none">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Meta_Logo.svg" alt="Meta" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/TikTok_Logo.svg" alt="TikTok" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Shopify_Logo.svg" alt="Shopify" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Snapchat_logo.svg" alt="Snapchat" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Instagram_logo.svg" alt="Instagram" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMessage_logo_%28iOS_12%29.png" alt="iMessage" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+        </div>
+        <div class="flex gap-24 md:gap-32 items-center flex-none">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Meta_Logo.svg" alt="Meta" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/TikTok_Logo.svg" alt="TikTok" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Shopify_Logo.svg" alt="Shopify" class="h-12 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Snapchat_logo.svg" alt="Snapchat" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Instagram_logo.svg" alt="Instagram" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/IMessage_logo_%28iOS_12%29.png" alt="iMessage" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="py-32 bg-gradient-to-b from-black to-gray-900/50">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center mb-24">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">Performance-First Services</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Everything built for ROAS. No vanity metrics.</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="group relative p-10 rounded-3xl border border-gray-800/50 hover:border-gray-700/80 hover:bg-white/5 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-burnt-500/10">
+          <div class="absolute -inset-1 bg-gradient-to-br from-burnt-600/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+          <div class="relative">
+            <div class="w-16 h-16 bg-burnt-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black mb-4">Paid Ads Scaling</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Full-funnel Meta, TikTok, Snapchat. Advanced scaling systems. Never run out of incrementality.</p>
+            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>ROAS-first scaling</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Cross-platform attribution</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Creative rotation automation</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="group relative p-10 rounded-3xl border border-gray-800/50 hover:border-gray-700/80 hover:bg-white/5 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-burnt-500/10 md:mt-12">
+          <div class="absolute -inset-1 bg-gradient-to-br from-burnt-600/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+          <div class="relative">
+            <div class="w-16 h-16 bg-burnt-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black mb-4">UGC Creator Sourcing</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Fully managed. No marketplace. We source, brief, manage, and deliver conversion-tested UGC at scale.</p>
+            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>100+ vetted creators</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Performance briefs</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Weekly delivery</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="group relative p-10 rounded-3xl border border-gray-800/50 hover:border-gray-700/80 hover:bg-white/5 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-burnt-500/10">
+          <div class="absolute -inset-1 bg-gradient-to-br from-burnt-600/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+          <div class="relative">
+            <div class="w-16 h-16 bg-burnt-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-black mb-4">Creative Strategy</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Hook matrix testing. Framework optimization. Creative systems that compound across platforms.</p>
+            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Hook testing frameworks</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Creative audit systems</li>
+              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Cross-platform optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS SECTION -->
+  <section id="results" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-burnt-900/10 via-black to-gray-900/50"></div>
+    <div class="container mx-auto px-6 max-w-6xl relative z-10">
+      <div class="text-center mb-24">
+        <h2 class="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Real Results</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Average client outcomes across 50+ DTC brands</p>
+      </div>
+      
+      <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">4.2x</div>
+          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">Avg ROAS</div>
+          <div class="text-2xl md:text-3xl font-black">Improvement</div>
+        </div>
+        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">62%</div>
+          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">CAC</div>
+          <div class="text-2xl md:text-3xl font-black">Reduction</div>
+        </div>
+        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">3.7x</div>
+          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">Ad Spend</div>
+          <div class="text-2xl md:text-3xl font-black">Scaling</div>
+        </div>
+        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">94%</div>
+          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">Client</div>
+          <div class="text-2xl md:text-3xl font-black">Retention</div>
+        </div>
+      </div>
+
+      <!-- Case Study Teaser -->
+      <div class="mt-24 grid md:grid-cols-2 gap-8 items-center">
+        <div class="bg-white/5 backdrop-blur-xl p-12 rounded-3xl border border-white/10">
+          <h3 class="text-3xl font-black mb-6">Beauty Brand</h3>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center text-2xl font-black"><span class="text-burnt-500 mr-3">8.1x</span>ROAS</div>
+            <div class="flex items-center text-2xl font-black"><span class="text-burnt-500 mr-3">$2.4M</span>Revenue</div>
+            <div class="flex items-center text-2xl font-black"><span class="text-burnt-500 mr-3">4mo</span>Campaign</div>
+          </div>
+          <div class="h-px bg-gradient-to-r from-burnt-500 to-transparent w-24"></div>
+        </div>
+        <div class="text-gray-400 space-y-4">
+          <p>"Took us from $80k/mo to $600k/mo in 4 months. Best agency decision we ever made."</p>
+          <div class="flex items-center pt-4">
+            <div class="w-12 h-12 bg-burnt-500 rounded-full flex items-center justify-center font-bold text-black mr-4">SK</div>
+            <div>
+              <div class="font-semibold">Sarah K.</div>
+              <div class="text-sm">GlowCo Founder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="py-32 bg-black">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-24">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">Simple. Proven. Process.</h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">4 steps to predictable scaling</p>
+      </div>
+      
+      <div class="relative">
+        <!-- Steps -->
+        <div class="grid md:grid-cols-4 gap-8 md:gap-0">
+          <div class="md:text-center relative md:pb-12 md:after:absolute md:after:h-px md:after:w-24 md:after:bg-gray-700 md:after:top-full md:after:left-1/2 md:after:-translate-x-1/2 md:after:hidden md:lg:after:block last:after:hidden">
+            <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">
+              01
+            </div>
+            <h3 class="text-2xl font-black mb-4">Audit Brand</h3>
+            <p class="text-gray-400 max-w-sm mx-auto">Deep dive into customer data, creative performance, and media efficiency</p>
+          </div>
+          
+          <div class="md:text-center relative md:pb-12 md:after:absolute md:after:h-px md:after:w-24 md:after:bg-gray-700 md:after:top-full md:after:left-1/2 md:after:-translate-x-1/2 md:after:hidden md:lg:after:block last:after:hidden">
+            <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">
+              02
+            </div>
+            <h3 class="text-2xl font-black mb-4">Match Creators</h3>
+            <p class="text-gray-400 max-w-sm mx-auto">Source perfect UGC creators. Custom performance briefs. Weekly delivery.</p>
+          </div>
+          
+          <div class="md:text-center relative md:pb-12 md:after:absolute md:after:h-px md:after:w-24 md:after:bg-gray-700 md:after:top-full md:after:left-1/2 md:after:-translate-x-1/2 md:after:hidden md:lg:after:block last:after:hidden">
+            <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">
+              03
+            </div>
+            <h3 class="text-2xl font-black mb-4">Launch Creatives</h3>
+            <p class="text-gray-400 max-w-sm mx-auto">Test frameworks. Hook matrices. Cross-platform optimization systems.</p>
+          </div>
+          
+          <div class="md:text-center relative">
+            <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">
+              04
+            </div>
+            <h3 class="text-2xl font-black mb-4">Scale Winners</h3>
+            <p class="text-gray-400 max-w-sm mx-auto">Automated scaling systems. Incrementality focus. Predictable growth.</p>
+          </div>
+        </div>
+        
+        <!-- Mobile connector line -->
+        <div class="md:hidden absolute left-10 top-1/2 h-px w-12 bg-gray-700 transform -translate-y-1/2"></div>
+        <div class="md:hidden absolute right-10 top-1/2 h-px w-12 bg-gray-700 transform -translate-y-1/2"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section id="contact" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 gradient-bg"></div>
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent leading-tight">
+          Ready to Scale
+          <span class="block bg-gradient-to-r from-burnt-500 to-burnt-600 bg-clip-text text-transparent">Your Brand?</span>
+        </h2>
+        <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-xl mx-auto">
+          Book your strategy call. We'll audit your brand and show you exactly how to 3x your ROAS.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <a href="https://cal.com/your-agency/strategy-call" target="_blank" class="group relative bg-burnt-600 hover:bg-burnt-500 text-black font-black py-8 px-16 rounded-2xl text-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-burnt-500/50 w-fit">
+            <span class="absolute inset-0 bg-white/30 rounded-2xl blur opacity-75 group-hover:opacity-100 transition-all duration-500"></span>
+            <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -rotate-2 group-hover:rotate-0 transition-all duration-500"></span>
+            <span class="relative flex items-center">
+              Book Strategy Call
+              <svg class="ml-4 w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+        
+        <div class="mt-16 pt-12 border-t border-gray-800">
+          <p class="text-gray-500 text-lg">Trusted by 50+ DTC brands | 4.9/5 from founders</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Smooth Scroll -->
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          entry.target.classList.add('animate-fadeInUp');
+        }
+      });
+    }, observerOptions);
+
+    // Observe service cards and results
+    document.querySelectorAll('.group, [id="results"] > div > div').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
