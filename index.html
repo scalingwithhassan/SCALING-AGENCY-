@@ -12,9 +12,23 @@
         extend: {
           fontFamily: { 'sans': ['Inter', 'sans-serif'] },
           colors: {
-            'burnt': {
-              50: '#fef7ed', 500: '#f97316', 600: '#ea580c', 700: '#c2410c', 900: '#7c2d12',
-            }
+            'navy': {
+              50:  '#e8ecf2',
+              100: '#c5cfd9',
+              500: '#0D1B2E',
+              600: '#132238',
+              700: '#0a1522',
+              900: '#060d17',
+            },
+            'teal': {
+              400: '#25c48f',
+              500: '#1D9E75',
+              600: '#178a63',
+            },
+            'slate': {
+              ui: '#9BAAB8',
+            },
+            'frost': '#EDF0F4',
           },
           animation: {
             'gradient': 'gradient 15s ease infinite',
@@ -40,8 +54,19 @@
     }
   </script>
   <style>
+    :root {
+      --midnight-navy: #0D1B2E;
+      --deep-slate:    #132238;
+      --frost-white:   #EDF0F4;
+      --blue-gray:     #9BAAB8;
+      --growth-teal:   #1D9E75;
+      --teal-light:    #25c48f;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
+      background: var(--midnight-navy);
+      color: var(--frost-white);
       -webkit-text-size-adjust: 100%;
       -webkit-user-select: none;
       -webkit-touch-callout: none;
@@ -72,24 +97,75 @@
       transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
     }
     #navbar.scrolled {
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(13, 27, 46, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.05);
+      box-shadow: 0 1px 0 rgba(155,170,184,0.1);
     }
 
-    /* Mobile menu */
-    #mobile-menu {
-      display: none;
-    }
-    #mobile-menu.open {
-      display: block;
-    }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
 
     .gradient-bg {
-      background: linear-gradient(-45deg, #0a0a0a, #1a0f0a, #0f0a0a, #1a0f0a);
+      background: linear-gradient(-45deg, #0D1B2E, #132238, #0a1a2e, #0f2040);
       background-size: 400% 400%;
       animation: gradient 15s ease infinite;
+    }
+
+    /* CTA button */
+    .btn-teal {
+      background: var(--growth-teal);
+      color: var(--frost-white);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-teal:hover {
+      background: var(--teal-light);
+      transform: scale(1.05);
+      box-shadow: 0 0 32px rgba(29,158,117,0.35);
+    }
+
+    /* Icon blocks */
+    .icon-block {
+      background: var(--growth-teal);
+    }
+
+    /* Step number blocks */
+    .step-block {
+      background: var(--growth-teal);
+      color: var(--frost-white);
+    }
+
+    /* Metric accent */
+    .metric-accent { color: var(--growth-teal); }
+
+    /* Divider line accent */
+    .divider-teal {
+      background: linear-gradient(to right, var(--growth-teal), transparent);
+    }
+
+    /* Card surfaces */
+    .card-surface {
+      background: var(--deep-slate);
+      border: 1px solid rgba(155,170,184,0.15);
+    }
+    .card-surface:hover {
+      border-color: rgba(155,170,184,0.35);
+      background: #162a45;
+    }
+
+    /* Stat blocks */
+    .stat-block {
+      background: rgba(19,34,56,0.8);
+      border: 1px solid rgba(155,170,184,0.12);
+      backdrop-filter: blur(20px);
+    }
+    .stat-block:hover {
+      background: rgba(19,34,56,1);
+    }
+
+    /* Bullet dot */
+    .bullet-dot {
+      background: var(--growth-teal);
     }
 
     .logo-scroll {
@@ -97,100 +173,149 @@
       animation: scroll 20s linear infinite;
     }
     @keyframes scroll {
-      0% { transform: translateX(0); }
+      0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
     .logo-scroll:hover { animation-play-state: paused; }
 
-    .glass { backdrop-filter: blur(20px); }
+    /* Glow blobs */
+    .glow-blob-1 {
+      background: rgba(29,158,117,0.08);
+    }
+    .glow-blob-2 {
+      background: rgba(29,158,117,0.14);
+    }
+
+    /* Gradient text */
+    .text-gradient-hero {
+      background: linear-gradient(to right, var(--frost-white), #c5cfd9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-teal {
+      background: linear-gradient(to right, var(--growth-teal), var(--teal-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .text-gradient-results {
+      background: linear-gradient(to right, var(--frost-white), #c5cfd9, #9BAAB8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     html { scroll-behavior: smooth; }
+
+    /* Section bg variants */
+    .section-services {
+      background: linear-gradient(to bottom, var(--midnight-navy), rgba(19,34,56,0.5));
+    }
+    .section-results {
+      background: linear-gradient(135deg, rgba(29,158,117,0.06) 0%, var(--midnight-navy) 50%, rgba(19,34,56,0.5) 100%);
+    }
+    .section-process { background: var(--midnight-navy); }
+    .section-book { background: rgba(19,34,56,0.4); }
+
+    /* card hover glow */
+    .card-glow::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: linear-gradient(135deg, rgba(29,158,117,0.18), transparent);
+      border-radius: 1.5rem;
+      opacity: 0;
+      filter: blur(12px);
+      transition: opacity 0.5s;
+      z-index: -1;
+    }
+    .card-glow:hover::before { opacity: 1; }
+
+    /* subtext color */
+    .text-sub { color: var(--blue-gray); }
+
+    /* border color */
+    .border-ui { border-color: rgba(155,170,184,0.15); }
+    .border-ui-hover:hover { border-color: rgba(155,170,184,0.4); }
   </style>
 </head>
-<body class="bg-black text-white overflow-x-hidden">
+<body class="overflow-x-hidden">
 
-  <!-- ═══════════════════════════════════
-       NAVBAR
-  ═══════════════════════════════════ -->
+  <!-- NAVBAR -->
   <nav id="navbar" class="py-4">
     <div class="container mx-auto px-6 flex items-center justify-between max-w-7xl">
-
-      <!-- Logo -->
       <a href="#hero" class="flex items-center gap-2 flex-shrink-0">
-        <span class="text-xl font-black tracking-tight">
-          Scale<span class="text-burnt-500">Haus</span>
+        <span class="text-xl font-black tracking-tight" style="color:var(--frost-white)">
+          Scale<span style="color:var(--growth-teal)">Haus</span>
         </span>
       </a>
 
-      <!-- Desktop Nav Links -->
       <div class="hidden md:flex items-center gap-8">
-        <a href="#services" class="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">Services</a>
-        <a href="#results"  class="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">Results</a>
-        <a href="#process"  class="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">Process</a>
-        <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200">Contact</a>
+        <a href="#services" class="text-sm font-medium text-sub hover:text-white transition-colors duration-200">Services</a>
+        <a href="#results"  class="text-sm font-medium text-sub hover:text-white transition-colors duration-200">Results</a>
+        <a href="#process"  class="text-sm font-medium text-sub hover:text-white transition-colors duration-200">Process</a>
+        <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-sub hover:text-white transition-colors duration-200">Contact</a>
       </div>
 
-      <!-- Book Now CTA -->
       <div class="hidden md:flex items-center">
         <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform"
            target="_blank" rel="noopener noreferrer"
-           class="bg-burnt-600 hover:bg-burnt-500 text-black font-semibold py-2.5 px-6 rounded-lg text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-burnt-500/20">
+           class="btn-teal font-semibold py-2.5 px-6 rounded-lg text-sm">
           Book Strategy Call
         </a>
       </div>
 
-      <!-- Mobile Hamburger -->
       <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
-        <span class="w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></span>
-        <span class="w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></span>
-        <span class="w-6 h-0.5 bg-white transition-all duration-300" id="bar3"></span>
+        <span class="w-6 h-0.5 bg-frost transition-all duration-300" id="bar1" style="background:var(--frost-white)"></span>
+        <span class="w-6 h-0.5 bg-frost transition-all duration-300" id="bar2" style="background:var(--frost-white)"></span>
+        <span class="w-6 h-0.5 bg-frost transition-all duration-300" id="bar3" style="background:var(--frost-white)"></span>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden bg-black/95 border-t border-gray-800/50">
+    <div id="mobile-menu" style="background:rgba(13,27,46,0.97); border-top:1px solid rgba(155,170,184,0.15)">
       <div class="container mx-auto px-6 py-6 flex flex-col gap-5">
-        <a href="#services" class="text-base font-medium text-gray-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Services</a>
-        <a href="#results"  class="text-base font-medium text-gray-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Results</a>
-        <a href="#process"  class="text-base font-medium text-gray-300 hover:text-white transition-colors" onclick="closeMobileMenu()">Process</a>
-        <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-gray-300 hover:text-white transition-colors">Contact</a>
+        <a href="#services" class="text-base font-medium text-sub hover:text-white transition-colors" onclick="closeMobileMenu()">Services</a>
+        <a href="#results"  class="text-base font-medium text-sub hover:text-white transition-colors" onclick="closeMobileMenu()">Results</a>
+        <a href="#process"  class="text-base font-medium text-sub hover:text-white transition-colors" onclick="closeMobileMenu()">Process</a>
+        <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform" target="_blank" rel="noopener noreferrer" class="text-base font-medium text-sub hover:text-white transition-colors">Contact</a>
         <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform"
            target="_blank" rel="noopener noreferrer"
-           class="bg-burnt-600 text-black font-semibold py-3 px-6 rounded-lg text-sm text-center mt-2">
+           class="btn-teal font-semibold py-3 px-6 rounded-lg text-sm text-center mt-2">
           Book Strategy Call
         </a>
       </div>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════
-       HERO SECTION
-  ═══════════════════════════════════ -->
+  <!-- HERO -->
   <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 pb-32 md:pb-48">
     <div class="absolute inset-0 gradient-bg"></div>
-    <div class="absolute inset-0 bg-black/60"></div>
-    <div class="absolute top-1/2 -right-20 w-80 h-80 bg-burnt-700/10 rounded-full blur-3xl animate-pulse" style="animation-delay: -3s;"></div>
-    <div class="absolute bottom-1/4 left-10 w-60 h-60 bg-burnt-600/20 rounded-full blur-2xl animate-pulse" style="animation-delay: -6s;"></div>
+    <div class="absolute inset-0" style="background:rgba(13,27,46,0.55)"></div>
+    <div class="absolute top-1/2 -right-20 w-80 h-80 glow-blob-1 rounded-full blur-3xl animate-pulse" style="animation-delay:-3s"></div>
+    <div class="absolute bottom-1/4 left-10 w-60 h-60 glow-blob-2 rounded-full blur-2xl animate-pulse" style="animation-delay:-6s"></div>
 
     <div class="container mx-auto px-6 text-center relative z-10 max-w-4xl">
-      <div class="animate-fadeInUp" style="animation-delay: 0.2s;">
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-          ScaleHaus
-          <span class="block bg-gradient-to-r from-burnt-500 to-burnt-600 bg-clip-text text-transparent">Performance Growth</span>
+      <div class="animate-fadeInUp" style="animation-delay:0.2s">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-8">
+          <span class="text-gradient-hero">ScaleHaus</span>
+          <span class="block text-gradient-teal">Performance Growth</span>
         </h1>
-        <p class="text-xl md:text-2xl font-light text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-          We combine <strong>expert media buying</strong>, <strong>fully managed UGC creators</strong>, and <strong>conversion-optimized creative strategy</strong>
-          to scale Shopify & DTC brands from zero sales to 6-figures and beyond.
+        <p class="text-xl md:text-2xl font-light max-w-2xl mx-auto mb-12 leading-relaxed" style="color:var(--blue-gray)">
+          We combine <strong style="color:var(--frost-white)">expert media buying</strong>, <strong style="color:var(--frost-white)">fully managed UGC creators</strong>, and <strong style="color:var(--frost-white)">conversion-optimized creative strategy</strong>
+          to scale Shopify &amp; DTC brands from zero sales to 6-figures and beyond.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
-          <!-- "Start Scaling" → scrolls to the Book Strategy Call section -->
           <a href="#book-call"
-             class="group relative bg-burnt-600 hover:bg-burnt-500 text-black font-semibold py-5 px-12 rounded-xl text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-burnt-500/25 w-fit">
-            <span class="absolute inset-0 bg-white/20 rounded-xl -translate-x-2 -translate-y-2 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0"></span>
-            <span class="relative">Start Scaling</span>
+             class="group relative btn-teal font-semibold py-5 px-12 rounded-xl text-lg w-fit">
+            <span class="relative" style="color:var(--frost-white)">Start Scaling</span>
           </a>
-          <a href="#results" class="font-semibold py-5 px-12 border border-gray-700/50 hover:border-gray-500 text-lg rounded-xl transition-all duration-300 hover:bg-white/5">
+          <a href="#results"
+             class="font-semibold py-5 px-12 rounded-xl text-lg transition-all duration-300"
+             style="border:1px solid rgba(155,170,184,0.3); color:var(--frost-white)"
+             onmouseover="this.style.background='rgba(155,170,184,0.07)'"
+             onmouseout="this.style.background='transparent'">
             View Results
           </a>
         </div>
@@ -199,144 +324,142 @@
   </section>
 
   <!-- LOGO STRIP -->
-  <section class="py-20 bg-black/80 backdrop-blur-sm overflow-hidden">
+  <section class="py-20 overflow-hidden" style="background:rgba(13,27,46,0.9); backdrop-filter:blur(8px)">
     <div class="container mx-auto px-6">
-      <div class="logo-scroll-container w-full overflow-hidden">
+      <div class="w-full overflow-hidden">
         <div class="logo-scroll gap-24 md:gap-32 items-center h-16 whitespace-nowrap">
           <div class="flex gap-24 md:gap-32 items-center flex-none min-w-full">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Meta_Logo.svg" alt="Meta" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/TikTok_Logo.svg" alt="TikTok" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Shopify_Logo.svg" alt="Shopify" class="h-12 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Snapchat_logo.svg" alt="Snapchat" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Instagram_logo.svg" alt="Instagram" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Meta_Logo.svg"      alt="Meta"      class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/TikTok_Logo.svg"    alt="TikTok"    class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Shopify_Logo.svg"   alt="Shopify"   class="h-12 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Snapchat_logo.svg"  alt="Snapchat"  class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Instagram_logo.svg" alt="Instagram" class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
           </div>
           <div class="flex gap-24 md:gap-32 items-center flex-none min-w-full">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Meta_Logo.svg" alt="Meta" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/TikTok_Logo.svg" alt="TikTok" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Shopify_Logo.svg" alt="Shopify" class="h-12 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Snapchat_logo.svg" alt="Snapchat" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Instagram_logo.svg" alt="Instagram" class="h-10 opacity-70 hover:opacity-100 transition-opacity flex-shrink-0" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Meta_Logo.svg"      alt="Meta"      class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/TikTok_Logo.svg"    alt="TikTok"    class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Shopify_Logo.svg"   alt="Shopify"   class="h-12 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Snapchat_logo.svg"  alt="Snapchat"  class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Instagram_logo.svg" alt="Instagram" class="h-10 opacity-50 hover:opacity-80 transition-opacity flex-shrink-0 brightness-0 invert" loading="lazy">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       SERVICES SECTION
-  ═══════════════════════════════════ -->
-  <section id="services" class="py-32 bg-gradient-to-b from-black to-gray-900/50">
+  <!-- SERVICES -->
+  <section id="services" class="py-32 section-services">
     <div class="container mx-auto px-6 max-w-6xl">
       <div class="text-center mb-24">
-        <h2 class="text-5xl md:text-6xl font-black mb-6">ScaleHaus Performance Growth</h2>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Everything built for ROAS. No vanity metrics.</p>
+        <h2 class="text-5xl md:text-6xl font-black mb-6" style="color:var(--frost-white)">ScaleHaus Performance Growth</h2>
+        <p class="text-xl max-w-2xl mx-auto" style="color:var(--blue-gray)">Everything built for ROAS. No vanity metrics.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="group relative p-10 rounded-3xl border border-gray-800/50 hover:border-gray-700/80 hover:bg-white/5 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-burnt-500/10">
-          <div class="absolute -inset-1 bg-gradient-to-br from-burnt-600/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+
+        <!-- Card 1 -->
+        <div class="group relative p-10 rounded-3xl card-surface card-glow border-ui border-ui-hover transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl" style="hover:box-shadow:0 24px 64px rgba(29,158,117,0.12)">
           <div class="relative">
-            <div class="w-16 h-16 bg-burnt-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+            <div class="w-16 h-16 icon-block rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8" fill="currentColor" style="color:var(--frost-white)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
             </div>
-            <h3 class="text-2xl font-black mb-4">Paid Ads Scaling</h3>
-            <p class="text-gray-400 leading-relaxed mb-6">Full-funnel Meta, TikTok. Advanced scaling systems. Never run out of incrementality.</p>
-            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
-            <ul class="text-sm text-gray-500 space-y-2">
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>ROAS-first scaling</li>
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Cross-platform attribution</li>
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Creative rotation automation</li>
+            <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">Paid Ads Scaling</h3>
+            <p class="leading-relaxed mb-6" style="color:var(--blue-gray)">Full-funnel Meta, TikTok. Advanced scaling systems. Never run out of incrementality.</p>
+            <div class="h-px w-24 mb-6 divider-teal"></div>
+            <ul class="text-sm space-y-2" style="color:var(--blue-gray)">
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>ROAS-first scaling</li>
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Cross-platform attribution</li>
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Creative rotation automation</li>
             </ul>
           </div>
         </div>
 
-        <div class="group relative p-10 rounded-3xl border border-gray-800/50 hover:border-gray-700/80 hover:bg-white/5 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-burnt-500/10">
-          <div class="absolute -inset-1 bg-gradient-to-br from-burnt-600/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        <!-- Card 2 -->
+        <div class="group relative p-10 rounded-3xl card-surface card-glow border-ui border-ui-hover transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
           <div class="relative">
-            <div class="w-16 h-16 bg-burnt-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <div class="w-16 h-16 icon-block rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8" fill="currentColor" style="color:var(--frost-white)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </div>
-            <h3 class="text-2xl font-black mb-4">UGC Creator Sourcing</h3>
-            <p class="text-gray-400 leading-relaxed mb-6">Fully managed. No marketplace. We source, brief, manage, and deliver conversion-tested UGC at scale.</p>
-            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
-            <ul class="text-sm text-gray-500 space-y-2">
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>100+ vetted creators</li>
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Performance briefs</li>
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Weekly delivery</li>
+            <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">UGC Creator Sourcing</h3>
+            <p class="leading-relaxed mb-6" style="color:var(--blue-gray)">Fully managed. No marketplace. We source, brief, manage, and deliver conversion-tested UGC at scale.</p>
+            <div class="h-px w-24 mb-6 divider-teal"></div>
+            <ul class="text-sm space-y-2" style="color:var(--blue-gray)">
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>100+ vetted creators</li>
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Performance briefs</li>
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Weekly delivery</li>
             </ul>
           </div>
         </div>
 
-        <div class="group relative p-10 rounded-3xl border border-gray-800/50 hover:border-gray-700/80 hover:bg-white/5 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-burnt-500/10">
-          <div class="absolute -inset-1 bg-gradient-to-br from-burnt-600/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+        <!-- Card 3 -->
+        <div class="group relative p-10 rounded-3xl card-surface card-glow border-ui border-ui-hover transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
           <div class="relative">
-            <div class="w-16 h-16 bg-burnt-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="w-16 h-16 icon-block rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8" fill="currentColor" style="color:var(--frost-white)" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <h3 class="text-2xl font-black mb-4">Creative Strategy</h3>
-            <p class="text-gray-400 leading-relaxed mb-6">Hook matrix testing. Framework optimization. Creative systems that compound across platforms.</p>
-            <div class="h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent w-24 mb-6"></div>
-            <ul class="text-sm text-gray-500 space-y-2">
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Hook testing frameworks</li>
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Creative audit systems</li>
-              <li class="flex items-center"><span class="w-2 h-2 bg-burnt-500 rounded-full mr-3"></span>Cross-platform optimization</li>
+            <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">Creative Strategy</h3>
+            <p class="leading-relaxed mb-6" style="color:var(--blue-gray)">Hook matrix testing. Framework optimization. Creative systems that compound across platforms.</p>
+            <div class="h-px w-24 mb-6 divider-teal"></div>
+            <ul class="text-sm space-y-2" style="color:var(--blue-gray)">
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Hook testing frameworks</li>
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Creative audit systems</li>
+              <li class="flex items-center"><span class="w-2 h-2 bullet-dot rounded-full mr-3 flex-shrink-0"></span>Cross-platform optimization</li>
             </ul>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       RESULTS SECTION
-  ═══════════════════════════════════ -->
-  <section id="results" class="py-32 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-burnt-900/10 via-black to-gray-900/50"></div>
+  <!-- RESULTS -->
+  <section id="results" class="py-32 relative overflow-hidden section-results">
     <div class="container mx-auto px-6 max-w-6xl relative z-10">
       <div class="text-center mb-24">
-        <h2 class="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">Real Results</h2>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Average client outcomes across 50+ DTC brands</p>
+        <h2 class="text-5xl md:text-6xl font-black mb-6 text-gradient-results">Real Results</h2>
+        <p class="text-xl max-w-2xl mx-auto" style="color:var(--blue-gray)">Average client outcomes across 50+ DTC brands</p>
       </div>
 
       <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
-        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">4.2x</div>
-          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">Avg ROAS</div>
-          <div class="text-2xl md:text-3xl font-black">Improvement</div>
+        <div class="text-center p-12 stat-block rounded-3xl transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black mb-4 metric-accent">4.2x</div>
+          <div class="text-sm font-medium uppercase tracking-wider mb-2" style="color:var(--blue-gray)">Avg ROAS</div>
+          <div class="text-2xl md:text-3xl font-black" style="color:var(--frost-white)">Improvement</div>
         </div>
-        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">62%</div>
-          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">CAC</div>
-          <div class="text-2xl md:text-3xl font-black">Reduction</div>
+        <div class="text-center p-12 stat-block rounded-3xl transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black mb-4 metric-accent">62%</div>
+          <div class="text-sm font-medium uppercase tracking-wider mb-2" style="color:var(--blue-gray)">CAC</div>
+          <div class="text-2xl md:text-3xl font-black" style="color:var(--frost-white)">Reduction</div>
         </div>
-        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">3.7x</div>
-          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">Ad Spend</div>
-          <div class="text-2xl md:text-3xl font-black">Scaling</div>
+        <div class="text-center p-12 stat-block rounded-3xl transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black mb-4 metric-accent">3.7x</div>
+          <div class="text-sm font-medium uppercase tracking-wider mb-2" style="color:var(--blue-gray)">Ad Spend</div>
+          <div class="text-2xl md:text-3xl font-black" style="color:var(--frost-white)">Scaling</div>
         </div>
-        <div class="text-center p-12 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-          <div class="text-4xl md:text-5xl font-black text-burnt-500 mb-4">94%</div>
-          <div class="text-sm font-medium text-gray-400 uppercase tracking-wider mb-2">Client</div>
-          <div class="text-2xl md:text-3xl font-black">Retention</div>
+        <div class="text-center p-12 stat-block rounded-3xl transition-all duration-300">
+          <div class="text-4xl md:text-5xl font-black mb-4 metric-accent">94%</div>
+          <div class="text-sm font-medium uppercase tracking-wider mb-2" style="color:var(--blue-gray)">Client</div>
+          <div class="text-2xl md:text-3xl font-black" style="color:var(--frost-white)">Retention</div>
         </div>
       </div>
 
       <div class="mt-24 grid md:grid-cols-2 gap-8 items-center">
-        <div class="bg-white/5 backdrop-blur-xl p-12 rounded-3xl border border-white/10">
-          <h3 class="text-3xl font-black mb-6">Beauty Brand</h3>
+        <div class="p-12 rounded-3xl stat-block">
+          <h3 class="text-3xl font-black mb-6" style="color:var(--frost-white)">Beauty Brand</h3>
           <div class="space-y-4 mb-8">
-            <div class="flex items-center text-2xl font-black"><span class="text-burnt-500 mr-3">8.1x</span>ROAS</div>
-            <div class="flex items-center text-2xl font-black"><span class="text-burnt-500 mr-3">$2.4M</span>Revenue</div>
-            <div class="flex items-center text-2xl font-black"><span class="text-burnt-500 mr-3">4mo</span>Campaign</div>
+            <div class="flex items-center text-2xl font-black" style="color:var(--frost-white)"><span class="metric-accent mr-3">8.1x</span>ROAS</div>
+            <div class="flex items-center text-2xl font-black" style="color:var(--frost-white)"><span class="metric-accent mr-3">$2.4M</span>Revenue</div>
+            <div class="flex items-center text-2xl font-black" style="color:var(--frost-white)"><span class="metric-accent mr-3">4mo</span>Campaign</div>
           </div>
-          <div class="h-px bg-gradient-to-r from-burnt-500 to-transparent w-24"></div>
+          <div class="h-px w-24 divider-teal"></div>
         </div>
-        <div class="text-gray-400 space-y-4">
-          <blockquote>"Took us from $80k/mo to $600k/mo in 4 months. Best agency decision we ever made."</blockquote>
+        <div class="space-y-4" style="color:var(--blue-gray)">
+          <blockquote class="text-lg leading-relaxed">"Took us from $80k/mo to $600k/mo in 4 months. Best agency decision we ever made."</blockquote>
           <div class="flex items-center pt-4">
-            <div class="w-12 h-12 bg-burnt-500 rounded-full flex items-center justify-center font-bold text-black mr-4">SK</div>
+            <div class="w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0"
+                 style="background:var(--growth-teal); color:var(--frost-white)">SK</div>
             <div>
-              <div class="font-semibold">Sarah K.</div>
+              <div class="font-semibold" style="color:var(--frost-white)">Sarah K.</div>
               <div class="text-sm">GlowCo Founder</div>
             </div>
           </div>
@@ -345,60 +468,54 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       PROCESS SECTION
-  ═══════════════════════════════════ -->
-  <section id="process" class="py-32 bg-black">
+  <!-- PROCESS -->
+  <section id="process" class="py-32 section-process">
     <div class="container mx-auto px-6 max-w-5xl">
       <div class="text-center mb-24">
-        <h2 class="text-5xl md:text-6xl font-black mb-6">Simple. Proven. Process.</h2>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto">4 steps to predictable scaling</p>
+        <h2 class="text-5xl md:text-6xl font-black mb-6" style="color:var(--frost-white)">Simple. Proven. Process.</h2>
+        <p class="text-xl max-w-2xl mx-auto" style="color:var(--blue-gray)">4 steps to predictable scaling</p>
       </div>
 
       <div class="grid md:grid-cols-4 gap-8 md:gap-0">
         <div class="md:text-center relative">
-          <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">01</div>
-          <h3 class="text-2xl font-black mb-4">Audit Brand</h3>
-          <p class="text-gray-400 max-w-sm mx-auto">Deep dive into customer data, creative performance, and media efficiency</p>
+          <div class="w-20 h-20 step-block rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">01</div>
+          <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">Audit Brand</h3>
+          <p class="max-w-sm mx-auto" style="color:var(--blue-gray)">Deep dive into customer data, creative performance, and media efficiency</p>
         </div>
         <div class="md:text-center relative">
-          <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">02</div>
-          <h3 class="text-2xl font-black mb-4">Match Creators</h3>
-          <p class="text-gray-400 max-w-sm mx-auto">Source perfect UGC creators. Custom performance briefs. Weekly delivery.</p>
+          <div class="w-20 h-20 step-block rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">02</div>
+          <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">Match Creators</h3>
+          <p class="max-w-sm mx-auto" style="color:var(--blue-gray)">Source perfect UGC creators. Custom performance briefs. Weekly delivery.</p>
         </div>
         <div class="md:text-center relative">
-          <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">03</div>
-          <h3 class="text-2xl font-black mb-4">Launch Creatives</h3>
-          <p class="text-gray-400 max-w-sm mx-auto">Test frameworks. Hook matrices. Cross-platform optimization systems.</p>
+          <div class="w-20 h-20 step-block rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">03</div>
+          <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">Launch Creatives</h3>
+          <p class="max-w-sm mx-auto" style="color:var(--blue-gray)">Test frameworks. Hook matrices. Cross-platform optimization systems.</p>
         </div>
         <div class="md:text-center relative">
-          <div class="w-20 h-20 bg-burnt-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black text-black">04</div>
-          <h3 class="text-2xl font-black mb-4">Scale Winners</h3>
-          <p class="text-gray-400 max-w-sm mx-auto">Automated scaling systems. Incrementality focus. Predictable growth.</p>
+          <div class="w-20 h-20 step-block rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl font-black">04</div>
+          <h3 class="text-2xl font-black mb-4" style="color:var(--frost-white)">Scale Winners</h3>
+          <p class="max-w-sm mx-auto" style="color:var(--blue-gray)">Automated scaling systems. Incrementality focus. Predictable growth.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════
-       BOOK STRATEGY CALL (anchor for Start Scaling)
-  ═══════════════════════════════════ -->
-  <section id="book-call" class="py-20 bg-gray-900/30">
+  <!-- BOOK CALL -->
+  <section id="book-call" class="py-20 section-book">
     <div class="container mx-auto px-6 max-w-3xl text-center">
-      <h2 class="text-4xl md:text-5xl font-black mb-4">Book Your Strategy Call</h2>
-      <p class="text-lg text-gray-400 mb-10">We'll audit your brand and show you exactly how to 3x your ROAS — free, no strings attached.</p>
+      <h2 class="text-4xl md:text-5xl font-black mb-4" style="color:var(--frost-white)">Book Your Strategy Call</h2>
+      <p class="text-lg mb-10" style="color:var(--blue-gray)">We'll audit your brand and show you exactly how to 3x your ROAS — free, no strings attached.</p>
       <a href="https://docs.google.com/forms/d/1ruHOeRG-gE-Jak6-cdkqPD3VsTPfy2F_ysfb8ek59R0/viewform"
          target="_blank" rel="noopener noreferrer"
-         class="inline-block bg-burnt-600 hover:bg-burnt-500 text-black font-bold py-5 px-14 rounded-xl text-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-burnt-500/30">
+         class="inline-block btn-teal font-bold py-5 px-14 rounded-xl text-xl">
         Book Strategy Call →
       </a>
-      <p class="mt-6 text-gray-500 text-sm">Spots are limited — we only take on brands we can genuinely scale.</p>
+      <p class="mt-6 text-sm" style="color:var(--blue-gray)">Spots are limited — we only take on brands we can genuinely scale.</p>
     </div>
   </section>
 
-  <!-- SCRIPTS -->
   <script>
-    // Mobile zoom prevention
     document.addEventListener('touchstart', function(e) { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
     let lastTouchEnd = 0;
     document.addEventListener('touchend', function(e) {
@@ -406,17 +523,11 @@
       if (now - lastTouchEnd <= 300) e.preventDefault();
       lastTouchEnd = now;
     }, false);
-    ['gesturestart','gesturechange','gestureend'].forEach(ev => {
-      document.addEventListener(ev, e => e.preventDefault());
-    });
+    ['gesturestart','gesturechange','gestureend'].forEach(ev => document.addEventListener(ev, e => e.preventDefault()));
 
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 20);
-    });
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
 
-    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
     const bar1 = document.getElementById('bar1');
@@ -427,7 +538,6 @@
     hamburger.addEventListener('click', () => {
       menuOpen = !menuOpen;
       mobileMenu.classList.toggle('open', menuOpen);
-      // Animate bars
       if (menuOpen) {
         bar1.style.transform = 'translateY(8px) rotate(45deg)';
         bar2.style.opacity = '0';
@@ -447,7 +557,6 @@
       bar3.style.transform = '';
     }
 
-    // Smooth scroll for all anchor links (including nav)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -462,13 +571,9 @@
       });
     });
 
-    // Intersection Observer for fade-in animations
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('animate-fadeInUp');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('animate-fadeInUp'); });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
     document.querySelectorAll('.group').forEach(el => observer.observe(el));
   </script>
 </body>
